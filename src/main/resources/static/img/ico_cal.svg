@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.936" height="20.157" viewBox="0 0 20.936 20.157">
+  <g id="ico_cal" transform="translate(0.29 0.663)">
+    <path id="패스_388" data-name="패스 388" d="M19.033,1.92H16.178V0h-1.9V5.759h1.9V3.839h2.855v14.4H1.9V3.839h1.9V1.92H1.9A1.911,1.911,0,0,0,0,3.839v14.4a1.911,1.911,0,0,0,1.9,1.92h17.13a1.911,1.911,0,0,0,1.9-1.92V3.839a1.911,1.911,0,0,0-1.9-1.92" transform="translate(-0.29 -0.663)" fill="#969696"/>
+    <path id="패스_389" data-name="패스 389" d="M6.9,3.839h6.662V1.92H6.9V0H5V5.759H6.9Z" transform="translate(-0.532 -0.663)" fill="#969696"/>
+    <path id="패스_390" data-name="패스 390" d="M0,0H3.191V3.191H0Z" transform="translate(4.16 7.447)" fill="#969696"/>
+    <path id="패스_394" data-name="패스 394" d="M0-.1H3V3.1H0Z" transform="translate(8.606 7.574)" fill="#969696"/>
+    <path id="패스_393" data-name="패스 393" d="M1,0H4.191V3.191H1Z" transform="translate(11.766 7.447)" fill="#969696"/>
+    <path id="패스_391" data-name="패스 391" d="M0,0H3.191V3.191H0Z" transform="translate(4.16 11.702)" fill="#969696"/>
+    <path id="패스_392" data-name="패스 392" d="M0,0H3.191V3.191H0Z" transform="translate(8.511 11.702)" fill="#969696"/>
+  </g>
+</svg>

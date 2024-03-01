@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songhwa.insulin.mapper.InsulinMapper">
+	<resultMap id="record" type="com.songhwa.insulin.dto.Record">
+		<id property="id" column="id" />
+		<result property="glucoseLevel" column="glucose_level"/>
+		<result property="measureDate" column="measure_date"/>
+		<result property="userId" column="user_id" />
+	</resultMap>
+
+	<insert id="writeRecord" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO record(glucose_level, measure_date, user_id)
+		VALUES (#{glucoseLevel}, NOW(), #{userId})
+	</insert>
+
+	<select id="getRecord" resultMap="record">
+		SELECT id,
+					 glucose_level,
+					 measure_date
+			FROM record
+		 WHERE user_id = #{userId}
+			<if test="startDate != null and endDate != null">
+		 	 AND measure_date BETWEEN #{startDate} AND #{endDate}
+		  </if>
+	</select>
+
+	<select id="selectRecord" resultMap="record">
+		SELECT id,
+					 glucose_level,
+					 measure_date
+			FROM record
+		 WHERE id = #{id}
+	</select>
+	
+	<select id="getLatestRecord" resultMap="record">
+		SELECT id,
+					 glucose_level,
+					 measure_date
+			FROM record
+		 WHERE user_id = #{userId}
+	ORDER BY id DESC
+		 LIMIT 1
+	</select>
+</mapper>
