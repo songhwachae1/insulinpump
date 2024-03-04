@@ -308,8 +308,8 @@ background: #2d7ef7;
 	font-size: 15px; 
 }
 
-.main__qna--input { display: flex; justify-content: space-between; padding: 0 !important; }
-.main__qna--input span { position: relative; display: inline-block; width: 48%;}
+.main__qna--input { display: flex; padding: 0 !important; }
+.main__qna--input span { position: relative; display: inline-block; width: 38%;}
 .main__qna--input input[type="text"] { width: 100%;  }
 .main__qna--input em { line-height: 35px; margin: 0 5px; }
 .main__qna--input span a { position:absolute; top: 6px; right: 10px; display: inline-block; width: 25px; height: 25px; background: #fff url(../img/ico_cal.svg) 0px 2px no-repeat; cursor: pointer;}

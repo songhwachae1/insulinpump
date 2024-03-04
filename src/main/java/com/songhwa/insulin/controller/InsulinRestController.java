@@ -39,8 +39,8 @@ public class InsulinRestController {
 		//TODO session check, get user id from the session
 
 		try {
-			String startDate = param.get("startDate").toString();
-			String endDate = param.get("endDate").toString();
+			String startDate = param.get("startDate").toString() + " 00:00:00";
+			String endDate = param.get("endDate").toString() + " 23:59:59";
 			List<Record> list = insulinService.getRecord(Long.valueOf(1), startDate, endDate);
 			rsp.setData(list);
 		} catch (Exception e) {

@@ -107,6 +107,7 @@ var m = {
 				return;
 			}
 
+			this._current = data.data.glucoseLevel;
 			this.setBandTxtCls(this._current)
 			this.$glucose.text(data.data.glucoseLevel);
 			this.$mdate.text(data.data.measureDate);
@@ -151,6 +152,8 @@ var m = {
 		var cls = 'safe';
 		
 		if (n < this._safeMin) {
+			console.log('1111111');
+			console.log(n);
 			band = 'dangerous';
 			action = 'warning';
 			cls = 'dang';
