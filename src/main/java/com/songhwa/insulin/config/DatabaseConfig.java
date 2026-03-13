@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.songhwa.insulin.mapper")
+@MapperScan("com.songhwa.insulin")
 public class DatabaseConfig {
 
   private static final Logger logger = LoggerFactory.getLogger(DatabaseConfig.class);

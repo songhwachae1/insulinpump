@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songhwa.insulin.mapper.UserMapper">
+	<resultMap id="user" type="com.songhwa.insulin.entity.User">
+		<id property="email" column="email" />
+		<result property="fname" column="fname"/>
+		<result property="lname" column="lname"/>
+		<result property="password" column="password" />
+		<result property="role" column="role" />
+	</resultMap>
+
+	<insert id="saveUser" parameterType="map" useGeneratedKeys="true" keyProperty="email">
+		INSERT INTO user(email, fname, lname, password, role)
+		VALUES (#{email}, #{fname}, #{lname}, #{password}, #{role})
+	</insert>
+
+	<select id="findByEmail" resultMap="user">
+		SELECT email,
+					 fname,
+					 lname,
+					 password,
+					 role
+			FROM user
+		 WHERE email = #{email}
+	</select>
+
+</mapper>

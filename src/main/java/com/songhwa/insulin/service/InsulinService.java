@@ -37,8 +37,8 @@ public class InsulinService implements InsulinMapper{
 	}
 
 	@Override
-	public List<Record> getRecord(Long userId, String startDate, String endDate) throws SQLException {
-		return insulinMapper.getRecord(userId, startDate, endDate);
+	public List<Record> getRecord(String userEmail, String startDate, String endDate) throws SQLException {
+		return insulinMapper.getRecord(userEmail, startDate, endDate);
 	}
 
 	@Override
@@ -47,14 +47,14 @@ public class InsulinService implements InsulinMapper{
 	}
 
 	@Override
-	public Record getLatestRecord(Long userId) throws SQLException {
-		return insulinMapper.getLatestRecord(userId);
+	public Record getLatestRecord(String userEmail) throws SQLException {
+		return insulinMapper.getLatestRecord(userEmail);
 	}
 
 	@Transactional
-	public Record readGlucoseLvl(Long userId) throws SQLException {
+	public Record readGlucoseLvl(String userEmail) throws SQLException {
 		Record record = new Record();
-		record.setUserId(userId);
+		record.setUserEmail(userEmail);
 		record.setGlucoseLevel(read());
 		writeRecord(record);
 		return selectRecord(record.getId());

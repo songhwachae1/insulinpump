@@ -22,7 +22,7 @@
 			</nav>
 			<div class="ddmenu" id="ddmenu">
 				<div class="bg-dark p-4">
-					<a class="dropdown-item text-white" href="/insulin/chart">History</a>
+					<a class="dropdown-item text-white" href="/chart">History</a>
 					<a class="dropdown-item text-white" href="#">Settings</a>
 				</div>
 			</div>

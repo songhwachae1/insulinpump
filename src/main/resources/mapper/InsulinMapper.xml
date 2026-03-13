@@ -7,12 +7,12 @@
 		<id property="id" column="id" />
 		<result property="glucoseLevel" column="glucose_level"/>
 		<result property="measureDate" column="measure_date"/>
-		<result property="userId" column="user_id" />
+		<result property="userEmail" column="user_email" />
 	</resultMap>
 
 	<insert id="writeRecord" parameterType="map" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO record(glucose_level, measure_date, user_id)
-		VALUES (#{glucoseLevel}, NOW(), #{userId})
+		INSERT INTO record(glucose_level, measure_date, user_email)
+		VALUES (#{glucoseLevel}, NOW(), #{userEmail})
 	</insert>
 
 	<select id="getRecord" resultMap="record">
@@ -20,7 +20,7 @@
 					 glucose_level,
 					 measure_date
 			FROM record
-		 WHERE user_id = #{userId}
+		 WHERE user_email = #{userEmail}
 			<if test="startDate != null and endDate != null">
 		 	 AND measure_date BETWEEN #{startDate} AND #{endDate}
 		  </if>
@@ -39,7 +39,7 @@
 					 glucose_level,
 					 measure_date
 			FROM record
-		 WHERE user_id = #{userId}
+		 WHERE user_email = #{userEmail}
 	ORDER BY id DESC
 		 LIMIT 1
 	</select>

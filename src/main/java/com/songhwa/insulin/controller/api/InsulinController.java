@@ -1,9 +1,11 @@
-package com.songhwa.insulin.controller;
+package com.songhwa.insulin.controller.api;
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.songhwa.insulin.common.ResponseObject;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-public class InsulinRestController {
+public class InsulinController {
 	
 	@Autowired
 	InsulinService insulinService;
@@ -36,12 +38,20 @@ public class InsulinRestController {
 			return rsp;
 		}
 
-		//TODO session check, get user id from the session
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if ("anonymousUser".equals(authentication.getName())) {
+			rsp.setReturnCode(StatusCode.ERROR_UNAUTHORIZED);
+			return rsp;
+		}
+		
+		String[] userArray = authentication.getName().split("\\|");
+		String userId = userArray[0];
 
 		try {
 			String startDate = param.get("startDate").toString() + " 00:00:00";
 			String endDate = param.get("endDate").toString() + " 23:59:59";
-			List<Record> list = insulinService.getRecord(Long.valueOf(1), startDate, endDate);
+			List<Record> list = insulinService.getRecord(userId, startDate, endDate);
 			rsp.setData(list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,9 +67,18 @@ public class InsulinRestController {
 	public ResponseObject<Object> read() {
 		ResponseObject<Object> rsp = new ResponseObject<>();
 
-		//TODO session check, get user id from the session
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if ("anonymousUser".equals(authentication.getName())) {
+			rsp.setReturnCode(StatusCode.ERROR_UNAUTHORIZED);
+			return rsp;
+		}
+		
+		String[] userArray = authentication.getName().split("\\|");
+		String userId = userArray[0];
+
 		try {
-			Record record = insulinService.readGlucoseLvl(Long.valueOf(1));
+			Record record = insulinService.readGlucoseLvl(userId);
 			rsp.setData(record);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,9 +94,18 @@ public class InsulinRestController {
 	public ResponseObject<Object> getLatestRecord() {
 		ResponseObject<Object> rsp = new ResponseObject<>();
 
-		//TODO session check, get user id from the session
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if ("anonymousUser".equals(authentication.getName())) {
+			rsp.setReturnCode(StatusCode.ERROR_UNAUTHORIZED);
+			return rsp;
+		}
+		
+		String[] userArray = authentication.getName().split("\\|");
+		String userId = userArray[0];
+
 		try {
-			Record record = insulinService.getLatestRecord(Long.valueOf(1));
+			Record record = insulinService.getLatestRecord(userId);
 			rsp.setData(record);
 		} catch (Exception e) {
 			e.printStackTrace();

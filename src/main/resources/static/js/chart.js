@@ -6,10 +6,12 @@ var h = {
 	_recordList: null,
 	_chart: null, //echarts object
 	_loading: false,
+	_gridDom: null,
 	$srchBtn: null,
-	$nodata: null,
 	$startBtn: null,
 	$endBtn: null,
+	$tabG: null,
+	$tabT: null,
 	getRecordList: function(start, end) {
 		if (this._loading) {
 			return;
@@ -48,6 +50,7 @@ var h = {
 				return item.glucoseLevel;
 			});
 			this.plot(x, y);
+			// this.drawTable();
 			c.hidePreloader();
 		})
 		.catch(error => {
@@ -83,13 +86,21 @@ var h = {
 		// Display the chart using the configuration items and data just specified.
 		this._chart.setOption(option);
 	},
+	drawTable: function(columns, data) {
+		new Grid({ 
+			columns: columns,
+			data: data 
+		}).render(this._gridDom);
+	},
 	init: function() {
 		var that = this;
 		this._today = moment();
 		this.$startBtn = $('#picker1');
 		this.$endBtn = $('#picker2');
 		this.$srchBtn = $('#search');
-		this.$nodata = $('#nodata');
+		this.$tabG = $('#tabG');
+		this.$tabT = $('#tabT');
+		this._gridDom = document.getElementById('Grid');
 		//start datepicker initial setting
 		this._startPicker = mobiscroll.datepicker('#start', {
 			controls: ['calendar'],

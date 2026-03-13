@@ -9,9 +9,9 @@
 	<link href="/css/mobiscroll.javascript.min.css" rel="stylesheet" type="text/css" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
 	<link rel="stylesheet" href="/css/style.css?a=1">
 	<script src="/js/sweetalert2.js"></script>
-	
 </head>
 <body>
 	<div class="wrapper pb-5">
@@ -23,7 +23,7 @@
 			</nav>
 			<div class="ddmenu" id="ddmenu">
 				<div class="bg-dark p-4">
-					<a class="dropdown-item text-white" href="/insulin/main">Main</a>
+					<a class="dropdown-item text-white" href="/main">Main</a>
 					<a class="dropdown-item text-white" href="#">Settings</a>
 				</div>
 			</div>
@@ -45,7 +45,16 @@
 				</div>
 			</div>
 		</div>
+		<!-- <ul class="nav nav-tabs justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" id="tabG">Graph</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="tabT">Table</a>
+			</li>
+		</ul> -->
 		<div id="chart" style="width: 100%;height:400px;" class="mt-3"></div>
+		<div id="grid" style="width: 100%;height:400px; display: none;" class="mt-3"></div>
 		<div class="preloaderDiv" style="display: none;">
 			<div id="preloader"></div>
 			<h1>Loading..</h1>
@@ -54,6 +63,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
 	<script src="/js/moment.js"></script>
 	<script src="/js/mobiscroll.javascript.min.js"></script>
 	<script src="/js/echarts.js"></script>

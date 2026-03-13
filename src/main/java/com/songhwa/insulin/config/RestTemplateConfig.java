@@ -1,4 +1,4 @@
-package com.songhwa.insulin.config;
+/*package com.songhwa.insulin.config;
 
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
@@ -26,4 +26,4 @@ public class RestTemplateConfig {
     
     return restTemplate;
   }
-}
+}*/

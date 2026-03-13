@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Record {
 	private Long id;
-	private Long userId;
+	private String userEmail;
 	private int glucoseLevel;
 	private String measureDate;
 }
